@@ -7,7 +7,7 @@ router.post("/usuarios", criarUsuario)
 router.get("/usuarios", listarUsuarios)
 router.get("/usuarios/:id", buscarUsuarioPorId)
 router.put("/usuarios/:id", atualizarUsuario)
-router.delete("/usuarios", deletarUsuario)
+router.delete("/usuarios/:id", deletarUsuario)
 
 export default router
 

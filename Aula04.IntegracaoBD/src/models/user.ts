@@ -3,7 +3,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity('users') // nome da tabela
 export class User {
 
-    constructor(name: string, email: string, password: string) {this.name = name, this.email = email, this.password = password}
+    constructor(name: string, email: string, password: string) {this.name = name, this.email = email, this.password = password }
 
     @PrimaryGeneratedColumn()
     id!: number;

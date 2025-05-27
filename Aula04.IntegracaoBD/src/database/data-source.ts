@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
     username: 'root', // seu usuário do MySQL
     password: 'root', // sua senha
     database: 'aula_typeorm',
-    synchronize: false, // CUIDADO! True no desenvolvimento, False em produção
+    synchronize: true, // CUIDADO! True no desenvolvimento, False em produção
     logging: true,
     entities: ["src/models/*.ts"],
 });

@@ -7,8 +7,13 @@ const userRepository = AppDataSource.getRepository(User);
 export class UserController {
     // Listar todos os usuários
     async list(req: Request, res: Response) {
-        const users = await userRepository.find();
-        res.json(users);
+        const users = await userRepository.find({ select: {
+            name: true,
+            email: true,
+            password: false
+        } });
+
+        res.json(users)
         return;
     }
 
@@ -34,7 +39,7 @@ export class UserController {
             return;
         }
 
-        res.json(user);
+        res.json({ "name": user.name, "email": user.email });
         return; 
     }
 

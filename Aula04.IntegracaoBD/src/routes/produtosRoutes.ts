@@ -6,7 +6,8 @@ const produtoControll = new ProdutoController()
 
 //Rotas produto
 router.get('/produtos', produtoControll.list);
-router.get('/produtos/:name', produtoControll.show);
+router.get('/produtos/:name', produtoControll.findByName);
+router.get('/produtos/name/:name', produtoControll.findById);
 router.post('/produtos', produtoControll.create);
 router.put('/produtos/:id', produtoControll.update);
 router.delete('/produtos/:id', produtoControll.delete);

@@ -21,11 +21,18 @@ export class UserController {
     async create(req: Request, res: Response) {
         const { name, email, password } = req.body;
 
+        const existEmail = await userRepository.findOneBy({ email })
+
+        if(existEmail) {
+            res.status(409).json({ message: "Este email já está em uso 🛑" })
+            return
+        }
+
         const user = userRepository.create({ name, email, password });
         await userRepository.save(user);
 
         res.status(201).json(user);
-        return;
+        return
     }
 
     // Buscar usuário por ID

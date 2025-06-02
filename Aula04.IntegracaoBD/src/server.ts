@@ -9,7 +9,7 @@ app.use(express.json()) //Define uma API REST
 AppDataSource.initialize()
     .then(() => {
 
-        app.use('/api', userRoutes);
+        app.use('/api', userRoutes)
         app.use('/api', produtoControll)
 
         app.listen(3000, () => console.log('Server rodando na porta 3000 🚪'));

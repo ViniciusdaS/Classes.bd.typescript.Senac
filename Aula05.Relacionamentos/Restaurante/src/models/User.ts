@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn , Column, OneToMany} from "typeorm";
 import { Order } from './Order';
+import { Dish } from "./Dish";
 
 @Entity('users')
 export class User {
@@ -24,6 +25,9 @@ export class User {
 
     @OneToMany(() => Order, (order) => order.user)
     orders!: Order[];
+
+    @OneToMany(() => Dish, (dish) => dish.user)
+    dish!: Dish[];
 
     /**
      * Getter name

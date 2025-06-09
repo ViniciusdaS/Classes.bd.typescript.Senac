@@ -6,6 +6,6 @@ const controller = new DishController()
 
 router.post('/dish', controller.createDish)
 router.get('/dish', controller.listDishes)
-router.get('/dish', controller.listDishById)
+router.get('/dish/:id', controller.listDishById)
 
 export default router;

@@ -25,6 +25,7 @@ export class DishController {
       res.status(400).json({ message: "Todos os campos são obrigatórios! 😡" })
       return
     }
+
     const objDish = new Dish(name, description, price, available)
     const dish = await dishRepository.create(objDish)
     const newDish = await dishRepository.save(dish);
@@ -41,10 +42,10 @@ export class DishController {
   }
 
   async listDishById(req: Request, res: Response) {
-    const id = Number(req.params)
+    const id = parseInt(req.params.id)
 
     if(!id) {
-      res.status(400).json({ message: "Id é necessário!" });
+      res.status(400).json({ message: "Id é necessário! 😡" });
       return
     }
 
@@ -59,7 +60,4 @@ export class DishController {
     return
 
   }
-
-
-
 }

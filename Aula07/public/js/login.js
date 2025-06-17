@@ -7,7 +7,7 @@ form.addEventListener('submit', async(e) => {
     const password = document.getElementById('password').value;
 
     try {
-        const res = await fetch('http://localhost:3000/api/users', {
+        const res = await fetch('http://localhost:3000/api/users/login', {
             method: 'POST', 
             headers: {
                 "Content-type": "application/json"
@@ -16,10 +16,10 @@ form.addEventListener('submit', async(e) => {
         }); 
 
         if(res.ok) {
-            alert('usuário criado com sucesso');
+            alert('usuário logado com sucesso !');
         } else {
             const data = await res.json();
-            alert(data.message || "Erro bisonho detectado! 👹");
+            alert(data.message || "Erro bisonho detectado! 👹  queime o pc imediatamente");
         }
     } catch(error) {
         alert('Erro bizonho!')

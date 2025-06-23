@@ -1,0 +1,23 @@
+body {
+    background-color:rgba(0, 0, 255, 0.88);
+}
+
+#containerTabela {
+    background-color:white;
+}
+
+#tabelaEventos {
+    text-align: center;
+    border:solid; 
+    font-size:40px;
+    width:100%;
+}
+
+#tabelaEventos tr th {
+    width:40%;
+    border:solid;
+}
+
+#addEvento {
+    width:100%;
+}

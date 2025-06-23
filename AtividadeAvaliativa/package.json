@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "github:types/express",
+    "@types/node": "^24.0.3",
+    "ts-node-dev": "^2.0.0"
+  },
+  "name": "atividadeavaliativa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "code": "npx ts-node-dev src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

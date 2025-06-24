@@ -2,6 +2,7 @@ import { Users } from "../model/userModel";
 import { Request, Response } from "express"; 
 import { AppDataSource } from "../database/data-source";
 import bcrypt from "bcryptjs"
+import { isDataView } from "util/types";
 
 const userRepository = AppDataSource.getRepository(Users); 
 

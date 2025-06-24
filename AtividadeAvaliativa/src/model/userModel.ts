@@ -5,16 +5,16 @@ import bcrypt from 'bcryptjs';
 export class Users {
 
     @PrimaryGeneratedColumn() 
-    id!: Number;
+    public id!: Number;
 
     @Column({ unique: false, nullable: false })
-    nome: string; 
+    public nome: string; 
 
     @Column({unique: true, nullable: false})
-    email: string
+    public email: string
 
     @Column({ nullable: false })
-    senha: string;
+    public senha: string;
 
 
     constructor(nome: string, senha: string, email: string) {this.nome = nome, this.senha = senha, this.email = email}

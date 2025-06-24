@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eventos</title>
+    <link rel="icon" href="./imgs/calendar.png">
     <link rel="stylesheet" href="./style/styleTelaEventos.css">
 </head>
 <body>
@@ -12,10 +13,10 @@
             <tr>
                 <th>Eventos</th>
                 <th>Local</th>
-                <th>Datas</th>
+                <th>Data</th>
             </tr>
             <tr>
-                <th>-----</th>
+                <th id="nome1">-----</th>
                 <th>-----</th>
                 <th>-----</th>
             </tr>
@@ -68,5 +69,45 @@
 
         <button id="addEvento">Adicionar evento</button>
     </div>
+
+    <dialog id="dialog">
+        <form id="formJanela">
+            <h1>Adicionar evento 📆</h1>
+            <br><br>
+            <label>Nome do evento</label>
+            <br>
+            <input id="campoAddNomeEvento">
+            <br><br>
+            <label>Local do evento</label>
+            <br>
+            <input id="campoAddLocalEvento">
+            <br><br>
+            <label>Data do evento</label>
+            <br>
+            <input id="campoAddDataEvento">
+            <br><br>
+
+            <input id="confirmarEvento" type="submit" value="Confirmar">
+        </form>
+        
+    </dialog>
+
+    <script>
+
+        const dialog = document.getElementById('dialog'); 
+        const evento = document.getElementById('addEvento');
+        const confirmarEvento = document.getElementById('confirmarEvento');
+        const campoAddDataEvento = document.getElementById('campoAddDataEvento').value;
+        const nome1 = document.getElementById('nome1').value; 
+
+        evento.addEventListener('click', () => {
+            dialog.showModal(); 
+        })
+
+        confirmarEvento.addEventListener('click', () => {
+            nome1.push(campoAddDataEvento)
+        })
+
+    </script>
 </body>
 </html>

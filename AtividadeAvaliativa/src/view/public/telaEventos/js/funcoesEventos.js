@@ -1,26 +1,35 @@
 const dialog = document.getElementById('dialog'); 
 const evento = document.getElementById('addEvento');
 const confirmarEvento = document.getElementById('confirmarEvento');
-const campoAddDataEvento = document.getElementById('campoAddDataEvento').value;
-const nome1 = document.getElementById('nome1').value; 
+const listaEventos = document.getElementById('listaEventos'); 
 
 evento.addEventListener('click', () => {
     dialog.showModal(); 
 })
-
-confirmarEvento.addEventListener('click', () => {
-    nome1.push(campoAddDataEvento)
-})
-
 
 const form = document.getElementById('formJanela');
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
 
-    const addNome = document.getElementById('campoAddNomeEvento').value;
-    const addLocal = document.getElementById('campoAddLocalEvento').value;
-    const addData = document.getElementById('campoAddDataEvento').value;
+    confirmarEvento.addEventListener('click', () => {
+
+    const nomeEvento = document.getElementById('campoAddNomeEvento').value;
+    const localEvento = document.getElementById('campoAddLocalEvento').value;
+    const dataEvento = document.getElementById('campoAddDataEvento').value;
+        
+    const novoNome = document.createElement('th')
+    const novoLocal = document.createElement('th')
+    const novaData = document.createElement('th')
+
+    listaEventos.appendChild(novoNome);
+    listaEventos.appendChild(novoLocal); 
+    listaEventos.appendChild(novaData);
+
+    newNome.textContent(nomeEvento);
+    newLocal.textContent(localEvento);
+    newData.textContent(dataEvento);
+})
 
     try {
         const res = await fetch('http://localhost:3000/api/users', {

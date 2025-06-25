@@ -92,22 +92,6 @@
         
     </dialog>
 
-    <script>
-
-        const dialog = document.getElementById('dialog'); 
-        const evento = document.getElementById('addEvento');
-        const confirmarEvento = document.getElementById('confirmarEvento');
-        const campoAddDataEvento = document.getElementById('campoAddDataEvento').value;
-        const nome1 = document.getElementById('nome1').value; 
-
-        evento.addEventListener('click', () => {
-            dialog.showModal(); 
-        })
-
-        confirmarEvento.addEventListener('click', () => {
-            nome1.push(campoAddDataEvento)
-        })
-
-    </script>
+    <script src="./js/funcoesEventos.js"></script>
 </body>
 </html>

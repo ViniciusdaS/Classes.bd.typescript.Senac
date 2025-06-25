@@ -1,10 +1,29 @@
-const formCadastro = document.getElementById('formCadastro');
-const campoNome = document.getElementById('campoNome').value;
-const campoEmail = document.getElementById('campoEmail').value;
-const campoSenha = document.getElementById('cmapoSenha').value;
-const cadastrar = document.getElementById('cadastrar'); 
+const form = document.getElementById('cadastro');
 
-cadastrar.addEventListener('click', alternarPagina = () => {
-    window.location.href('./telaEventos/index.html')
-})
+form.addEventListener('submit', async(e) => {
+    e.preventDefault();
 
+    const nome = document.getElementById('campoNome').value;
+    const email = document.getElementById('campoEmail').value;
+    const senha = document.getElementById('campoSenha').value;
+
+    try {
+        const res = await fetch('http://localhost:3000/api/users', {
+            method: 'POST', 
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ nome: nome, email: email, senha: senha })
+        }); 
+
+        if(res.ok) {
+            alert('usuário criado com sucesso');
+        } else {
+            const data = await res.json();
+            alert(data.message || "Erro ao criar usuário");
+        }
+    } catch(error) {
+        alert('Impossível criar usuário')
+        console.error('Erro bisnho detectado!: ', error); 
+    }
+});

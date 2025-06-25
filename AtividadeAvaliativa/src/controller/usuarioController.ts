@@ -2,7 +2,6 @@ import { Usuarios } from "../model/usuarioModel";
 import { Request, Response } from "express"; 
 import { AppDataSource } from "../database/data-source";
 import bcrypt from "bcryptjs"
-import { Repository } from "typeorm";
 
 const userRepository = AppDataSource.getRepository(Usuarios); 
 
@@ -35,14 +34,14 @@ export class UserController {
     async atualizarUsuario(req: Request, res: Response) {
 
     const id = Number(req.params.id);
-    const { nome, email } = req.body;
+    const { nome, email, senha } = req.body;
 
     if(!id){
         res.status(400).json({ mensagem: "O id é necessário!"})
         return
     }
 
-    if(!nome && !email) {
+    if(!nome || !email || !senha) {
         res.status(400).json({mensagem: "Preencha os campos!"})
         return
     }
@@ -56,6 +55,7 @@ export class UserController {
 
         usuario.nome = nome || usuario.nome;
         usuario.email = email || usuario.email;
+        usuario.senha = senha || usuario.senha;
 
         res.status(200).json({ mensagem: "Usuário atualizado com sucesso!", usuario });
 };
@@ -85,16 +85,18 @@ export class UserController {
             res.status(400).json({ mensagem: 'Preencha os campos necessários.' })
         }
 
-        const emailExistente = await userRepository.findBy({ email })
+        const emailExistente = await userRepository.findOneBy({ email })
 
         if (!emailExistente) {
-            res.status(400).json({ mensagem: "Usuário inexistente" })
+            res.status(404).json({ mensagem: "Usuário inexistente" })
+            return;
         }
 
         const senhaValida = await bcrypt.compare(senha, emailExistente.senha);
         
         if(!senhaValida) {
-            res.status(400).json({ mensagem: "Senha inválida!" })
+            res.status(401).json({ mensagem: "Senha inválida!" })
+            return;
         }
 
         res.status(201).json({ mensagem: `Bem vindo ${nome}` })

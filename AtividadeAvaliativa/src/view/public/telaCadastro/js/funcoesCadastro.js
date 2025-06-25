@@ -8,7 +8,7 @@ form.addEventListener('submit', async(e) => {
     const senha = document.getElementById('campoSenha').value;
 
     try {
-        const res = await fetch('http://localhost:3000/api/users', {
+        const res = await fetch('http://localhost:3000/api/usuarios', {
             method: 'POST', 
             headers: {
                 "Content-type": "application/json"
@@ -18,12 +18,13 @@ form.addEventListener('submit', async(e) => {
 
         if(res.ok) {
             alert('usuário criado com sucesso');
+            location.href = "../telaLogin/index.html";
         } else {
             const data = await res.json();
             alert(data.message || "Erro ao criar usuário");
         }
     } catch(error) {
         alert('Impossível criar usuário')
-        console.error('Erro bisnho detectado!: ', error); 
+        console.error('Erro bisonho detectado!: ', error); 
     }
 });

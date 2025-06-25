@@ -1,44 +1,28 @@
-## Atividade avaliativa de backend com protocolos http 🌐
+## Atividade avaliativa de backend; 
 
-# O objetivo dessa atividade é criar uma aplicação, utilizando protocolos http. A aplicação deve conter: 
+# Todo o código foi colocado de uma página src, enquanto as dependências ficaram fora de src.
 
-**Backend(nodeJS, Typescript e TypeORM)** 
-**Frontend(HTML, CSS e Javascript)** 
-**Autenticação(Login e cadastro)**
-**CRUD completo com tema da sua escolha** 
+## Controller 
+# A O arquivo controller contém eventosController que matém o controle dos dados dos eventos. usuarioController que faz o controle da função dos dados de usuários.
 
-## ⚙ Requisitos técnicos; 
+## database 
+# O arquivo database contém a pasta data-source que faz o controle dos dados do banco de dados da aplicação. 
 
-**NodeJS com typescript**
+## model
+# O arquivo model contém a pasta eventosModel que tem o modelo das tabelas de dados dos eventos. usuariosModel que tem os modelos de tabela de dados dos usuários. 
 
-**ORM: TypeORM**
+## routes
+# A pasta routes contém eventosRoutes que faz o controle das rotas do CRUD de eventos. usuarioRoutes que faz o controle das rotas do CRUD de usuários. 
 
-**Banco de dados mysql**
 
-**Cadastro e login de usuários(Com hash de senhas)**
+## view/public
+# O arquivo view contém o arquivo public que carrega as telas de cadastro, de login e a tela principal de eventos. 
 
-**CRUD completo de uma entidade:Criar,Listar tudo, Buscar por ID,Editar,Deletar**
+## telaCadastro
+# Arquivo dos códigos da tela de cadastro, contendo um arquivo de imagens, um arquivo js para as funções da tela de cadastro, um arquivo style para o visual das páginas e o arquivo index.html, código principal da página. 
 
-**Validações básicas(Campos obrigatórios, formato de dados, etc.)**
+## telaLogin
+# Arquivo que contém os códigos da tela de login, contém um arquivo para imagens, um arquivo js para funções da tela de login, um arquivo CSS para o visual das telas
 
-## 🎨 Frontend(Dentro da pasta public/); 
-
-**Tela de login**
-
-**Tela de cadastro**
-
-**Tela inicial(Após login) com: Boas vindas, acesso ás operações do CRUD**
-
-**Interface para: Cadastrar nova entidade, Listar todas, Buscar por ID, Editar, Deletar**
-
-**Comunicação com o back via fetch e consumo de JSON**
-
-**Feedback visual para ações(EX: Alertas de sucesso/erro)**
-
-## Organização do projeto
-
-## Critérios de avaliação
-
-## Entrega
-
-## Dica de temas
+## telaEventos
+# Arquivo que contém os códigos da tela principal de eventos, tendo um arquivo para imagens, um arquivo js para as funções da tela de eventos, um arquivo style para o visual da página e o arquivo principal index.html.

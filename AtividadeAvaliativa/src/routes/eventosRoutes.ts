@@ -6,5 +6,7 @@ const router = Router();
 
 router.post('/eventos', controller.criarEvento); 
 router.get('/eventos', controller.listarEvento);
+router.put('/eventos', controller.atualizarEvento);
+router.delete('/eventos', controller.deletarEvento);
 
-export default router;  
+export default router;

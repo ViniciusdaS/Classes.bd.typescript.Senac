@@ -1,8 +1,13 @@
 body {
+    background-color:rgba(0, 255, 255, 0.72);
     font-family: verdana;
 }
 
 #cadastro {
     text-align:center;
-    padding-top:3%;
+    padding-top:1%;
+}
+
+#cadastrar {
+    border:solid;
 }

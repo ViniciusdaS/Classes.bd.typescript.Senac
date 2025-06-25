@@ -7,7 +7,7 @@ form.addEventListener('submit', async(e) => {
     const senha = document.getElementById('campoSenha').value;
 
     try {
-        const res = await fetch('http://localhost:3000/api/users/login', {
+        const res = await fetch('http://localhost:3000/api/usuarios/login', {
             method: 'POST', 
             headers: {
                 "Content-type": "application/json"
@@ -17,9 +17,10 @@ form.addEventListener('submit', async(e) => {
 
         if(res.ok) {
             alert('usuário logado com sucesso !');
+            location.href = "../telaEventos/index.html";
         } else {
             const data = await res.json();
-            alert(data.message || "Impossível criar usuário");
+            alert(data.message || "Algo incorreto");
         }
     } catch(error) {
         alert('Erro bisonho detectado!')
